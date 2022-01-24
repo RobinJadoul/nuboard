@@ -1,0 +1,53 @@
+# Nuboard
+
+*A collaborative minimalist latex/math editor, inspired by [muboard](https://muboard.net/).*
+
+## What and why?
+
+I sometimes want to talk to other people and quickly write down some
+math when I'm explaining things.
+Rather than having other people interpret the unrendered latex, or the
+ascii/unicode approximations I would write down, I could of course 
+screenshot or screenshot muboard, but it's nicer and less effort
+to quickly share a link and type things out live.
+Having the entire thing be collaborative based on some CRDT approach
+was then simply the natural generalization/implementation of the concept.
+
+## Deploying
+
+Once the javascript bundle is built, it should be enough to simply
+put `index.html` together with the bundle on some static web server.
+Since I don't expect more than a few peers to be connected or working
+on a single page at any given time, it should work out fine with Yjs'
+webRTC connection and hence not need any extra servers (optionally, you
+could run and configure some extra signaling server).
+
+*TODO*: add proper build/deploy instruction once everything gets figured out.
+
+## Why is it more complex and heavier?
+
+Starting to use a CRDT inherently brings more complexity than
+simply typing in and rendering from a textarea element.
+Looking into practical CRDT implementations quickly leads one to 
+the Yjs library, which already has bindings for several text editors,
+but no bindings for plain textarea or other html elements were to be found.
+Rather than spend a lot of time trying to roll my own bindings, I decided
+that using one of the existing ones would provide less resistance.
+
+Most of the existing bindings provide a full-blown (and less convenient)
+rich-text editor with tendencies towards WYSIWYG, so I tried to take
+the least opinionated out of the options to have as stripped down an experience
+as I could get, and stay close to the UI spirit of the original muboard.
+
+Needing npm dependencies in this manner anyway, and the bundling and weird
+other javascript stuff likely being needed already, I decided it could
+be a fun experiment to implement all of this in some framework that didn't
+look *too* horrendous.
+Hence this being implemented in svelte.
+
+## License
+
+Similar to the muboard project by which this was inspired, and
+from which some CSS was adapted, this project is licensed under
+the MIT license.
+See the [LICENSE](./LICENSE) file for the details.

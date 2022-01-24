@@ -1,0 +1,9 @@
+{
+  "name": "nuboard",
+  "version": "1.0.0",
+  "description": "A collaborative minimalist latex/math editor, inspired by muboard",
+  "main": "index.js",
+  "repository": "https://git.sr.ht/~robin_jadoul/nuboard",
+  "author": "Robin Jadoul",
+  "license": "MIT"
+}
