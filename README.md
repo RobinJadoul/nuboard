@@ -13,16 +13,39 @@ to quickly share a link and type things out live.
 Having the entire thing be collaborative based on some CRDT approach
 was then simply the natural generalization/implementation of the concept.
 
-## Deploying
+## Hacking and deploying
+
+To get up and running, you'll need `yarn` installed.
+Then simply run
+
+```sh
+yarn install
+```
+
+to fill your harddrive with^W^W^W^W install the dependencies.
+You can start the development server on <http://localhost:3000>
+by running 
+
+```sh
+yarn start
+```
+
+You can build a release/deploy bundle with 
+
+
+```sh
+yarn run build
+```
+
+which should place the files to be deployed in the `dist` directory.
 
 Once the javascript bundle is built, it should be enough to simply
-put `index.html` together with the bundle on some static web server.
+put the contents of `dist` on some static web server.
+
 Since I don't expect more than a few peers to be connected or working
 on a single page at any given time, it should work out fine with Yjs'
 webRTC connection and hence not need any extra servers (optionally, you
 could run and configure some extra signaling server).
-
-*TODO*: add proper build/deploy instruction once everything gets figured out.
 
 ## Why is it more complex and heavier?
 
@@ -43,6 +66,7 @@ Needing npm dependencies in this manner anyway, and the bundling and weird
 other javascript stuff likely being needed already, I decided it could
 be a fun experiment to implement all of this in some framework that didn't
 look *too* horrendous.
+Note that the entire concept isn't really feasible without javascript, so here we are.
 Hence this being implemented in svelte.
 
 ## License

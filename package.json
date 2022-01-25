@@ -5,5 +5,14 @@
   "main": "index.js",
   "repository": "https://git.sr.ht/~robin_jadoul/nuboard",
   "author": "Robin Jadoul",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+        "start": "vite",
+        "build": "vite build"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.35",
+    "svelte": "^3.46.2",
+    "vite": "^2.7.13"
+  }
 }
