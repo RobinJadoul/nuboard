@@ -1,0 +1,27 @@
+image: alpine/latest
+
+packages:
+  - nodejs
+  - yarn
+
+oauth: pages.sr.ht/PAGES:RW
+
+environment:
+  site: nu.031337.xyz
+
+sources:
+  - https://git.sr.ht/~robin_jadoul/nuboard
+
+tasks:
+  - deps: |
+      cd nuboard
+      yarn install
+  - build: |
+      cd nuboard
+      yarn build
+  - package: |
+      cd nuboard/dist
+      tar -cvz . > ../../site.tar.gz
+  - upload: |
+      acurl -f https://pages.sr.ht/publish/$site -Fcontent=@site.tar.gz
+

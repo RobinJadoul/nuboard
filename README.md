@@ -1,4 +1,4 @@
-# Nuboard
+# [Nuboard](https://nu.031337.xyz)
 
 *A collaborative minimalist latex/math editor, inspired by [muboard](https://muboard.net/).*
 
