@@ -75,3 +75,9 @@ Similar to the muboard project by which this was inspired, and
 from which some CSS was adapted, this project is licensed under
 the MIT license.
 See the [LICENSE](./LICENSE) file for the details.
+
+The icon (e.g. the [favicon](./public/favicon.png)) is the cuneiform sign
+nu, as a play on the meaning of the word/letter nu.
+This was created by Margret Studt and is available under CC BY-SA 2.5
+at <https://en.wikipedia.org/wiki/Nu_(cuneiform)#/media/File:B112ellst.png>.
+The colors were adapted to be white on blackboard green.
