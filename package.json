@@ -7,12 +7,14 @@
   "author": "Robin Jadoul",
   "license": "MIT",
   "scripts": {
-        "start": "vite",
-        "build": "vite build"
+    "start": "vite",
+    "build": "vite build && vite build --ssr prerender.js --outDir build && node build/prerender"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.35",
-    "svelte": "^3.46.2",
     "vite": "^2.7.13"
+  },
+  "dependencies": {
+    "svelte": "^3.46.2"
   }
 }
