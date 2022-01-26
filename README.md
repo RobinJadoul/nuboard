@@ -34,7 +34,7 @@ You can build a release/deploy bundle with
 
 
 ```sh
-yarn run build
+yarn build
 ```
 
 which should place the files to be deployed in the `dist` directory.
