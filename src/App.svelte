@@ -1,7 +1,7 @@
-<h1>Test</h1>
+<script>
+    import Board from './components/Board.svelte';
+    let content;
+</script>
 
-<style>
-    h1 {
-        color: navy;
-    }
-</style>
+<Board content={content} />
+<textarea bind:value={content} />

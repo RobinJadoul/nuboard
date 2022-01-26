@@ -76,8 +76,18 @@ from which some CSS was adapted, this project is licensed under
 the MIT license.
 See the [LICENSE](./LICENSE) file for the details.
 
-The icon (e.g. the [favicon](./public/favicon.png)) is the cuneiform sign
-nu, as a play on the meaning of the word/letter nu.
-This was created by Margret Studt and is available under CC BY-SA 2.5
-at <https://en.wikipedia.org/wiki/Nu_(cuneiform)#/media/File:B112ellst.png>.
-The colors were adapted to be white on blackboard green.
+### Dependencies
+
+This would be a far bigger work without being able to stand
+on the shoulders of giants so here's a quick list of dependencies
+nuboard relies on to function properly.
+
+- The icon (e.g. the [favicon](./public/favicon.png)) is the cuneiform sign
+  nu, as a play on the meaning of the word/letter nu.
+  This was created by Margret Studt and is available under CC BY-SA 2.5
+  at <https://en.wikipedia.org/wiki/Nu_(cuneiform)#/media/File:B112ellst.png>.
+  The colors were adapted to be white on blackboard green.
+- LaTeX and mathematics are rendered by [KaTeX](https://katex.org/)
+- Markdown is handled by [marked](https://marked.js.org)
+- Sanitization to avoid XSS in the rendered document is
+  provided by [DOMPurify](https://github.com/cure53/DOMPurify).
