@@ -4,6 +4,9 @@ packages:
   - nodejs
   - yarn
 
+secrets:
+  - e6f312d6-163a-40f3-924a-3d27c28f3af0 # ssh key to push to gh
+
 oauth: pages.sr.ht/PAGES:RW
 
 environment:
@@ -19,9 +22,17 @@ tasks:
   - build: |
       cd nuboard
       yarn build
-  - package: |
+  # Can't use srht.site because CSP blocks the websockets for webrtc signaling
+  # - package: |
+      # cd nuboard/dist
+      # tar -cvz . > ../../site.tar.gz
+  # - upload: |
+      # acurl -f https://pages.sr.ht/publish/$site -Fcontent=@site.tar.gz
+  - push: |
       cd nuboard/dist
-      tar -cvz . > ../../site.tar.gz
-  - upload: |
-      acurl -f https://pages.sr.ht/publish/$site -Fcontent=@site.tar.gz
+      git init
+      git remote add origin git@github.com:RobinJadoul/nuboard.git
+      git add .
+      git commit -m "build"
+      GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no" git push --force origin master:gh-pages
 
