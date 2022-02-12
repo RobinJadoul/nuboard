@@ -91,3 +91,9 @@ nuboard relies on to function properly.
 - Markdown is handled by [marked](https://marked.js.org)
 - Sanitization to avoid XSS in the rendered document is
   provided by [DOMPurify](https://github.com/cure53/DOMPurify).
+- The editor experience is backed by a miminalistic use of
+  [ProseMirror](https://github.com/ProseMirror/prosemirror)
+- The collaborative editing aspect is handled by [Yjs](https://yjs.dev/)
+  and integration through [y-prosemirror](https://github.com/yjs/y-prosemirror), with
+  communication happening through [y-webrtc](https://github.com/yjs/y-webrtc).
+  Some local storage/backup of documents is achieved through [y-indexeddb](https://github.com/yjs/y-indexeddb).
