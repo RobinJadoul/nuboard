@@ -15,10 +15,12 @@
 
 
     const ydoc = new Y.Doc();
-    // TODO: proper naming instead of nuboard-stuff
-    const webrtc = new WebrtcProvider('nuboard-stuff', ydoc);
     const ytype = ydoc.getXmlFragment('prosemirror');
-    const idbsync = new IndexeddbPersistence('nuboard-stuff', ydoc);
+    if (!import.meta.env.SSR) { // No point trying to get anything synced when prerendering
+        // TODO: proper naming instead of nuboard-stuff
+        const webrtc = new WebrtcProvider('nuboard-stuff', ydoc);
+        const idbsync = new IndexeddbPersistence('nuboard-stuff', ydoc);
+    }
     
 
     const schema = new Schema({
