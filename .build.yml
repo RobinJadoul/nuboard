@@ -7,7 +7,7 @@ packages:
 secrets:
   - e6f312d6-163a-40f3-924a-3d27c28f3af0 # ssh key to push to gh
 
-oauth: pages.sr.ht/PAGES:RW
+# oauth: pages.sr.ht/PAGES:RW
 
 environment:
   site: nu.031337.xyz
@@ -28,8 +28,17 @@ tasks:
       # tar -cvz . > ../../site.tar.gz
   # - upload: |
       # acurl -f https://pages.sr.ht/publish/$site -Fcontent=@site.tar.gz
+  - update_mirror: |
+      cd nuboard
+      # guard we're on master
+      git for-each-ref --format='%(objectname) %(refname:short)' refs/heads | awk "/^$(git rev-parse HEAD)/ {print \$2}" | grep master || exit 0
+      git remote add gh git@github.com:RobinJadoul/nuboard.git
+      GIT_SSH_COMMAND="ssh -oStrictHostKeyChecking=no" git push gh master
   - push: |
       cd nuboard/dist
+      # guard we're on master
+      git for-each-ref --format='%(objectname) %(refname:short)' refs/heads | awk "/^$(git rev-parse HEAD)/ {print \$2}" | grep master || exit 0
+      echo "$site" > CNAME
       git init
       git remote add origin git@github.com:RobinJadoul/nuboard.git
       git add .
